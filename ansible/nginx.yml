@@ -1,0 +1,16 @@
+- hosts: nginx
+  tasks:
+    - name: Update&Upgrade
+      ansible.builtin.apt:
+        name: aptitude
+        state: present
+        update_cache: true
+
+    # - name: Install nginx
+    #   # command: apt install nginx -y
+    # # - name: Installs nginx web server
+    #   apt: pkg=nginx state=latest update_cache=true
+    - name: Install dependencies
+      ansible.builtin.apt:
+        name:
+          - nginx
