@@ -16,7 +16,7 @@ resource "proxmox_lxc" "nginxProxy" {
   
   rootfs {
     storage    = "slow"
-    size       = "2G"
+    size       = "8G"
   }
 
   network {

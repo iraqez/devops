@@ -1,6 +1,6 @@
 ---
-- name: Setup Docker on Ubuntu Server
-  hosts: all
+- name: Setup nginx on Ubuntu Server
+  hosts: nginx
   become: true
   remote_user: root
   roles:

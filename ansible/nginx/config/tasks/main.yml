@@ -1,6 +1,0 @@
----
-- name: Update&Upgrade
-  ansible.builtin.apt:
-    name: aptitude
-    state: present
-    update_cache: true
