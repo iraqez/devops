@@ -1,0 +1,8 @@
+---
+- name: Setup AnsibleDocker on Ubuntu Server
+  hosts: all
+  become: true
+  remote_user: root
+  roles:
+    - config
+    - instApp

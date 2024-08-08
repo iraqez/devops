@@ -1,0 +1,25 @@
+---
+- name: Install gnupg
+  apt: pkg=gnupg state=latest update_cache=true
+
+- name: Add ansible repository
+  ansible.builtin.apt_repository:
+    repo: ppa:ansible/ansible
+
+- name: add key for terraform
+  apt_key:
+    url: https://apt.releases.hashicorp.com/gpg
+
+- name: Add terraform repository
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64] https://apt.releases.hashicorp.com mantic main"
+    state: present
+
+- name: Install dependencies
+  ansible.builtin.apt:
+    name:
+      - ansible
+      - terraform
+      - git
+    state: present
+    update_cache: true
