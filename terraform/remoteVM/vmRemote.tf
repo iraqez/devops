@@ -16,7 +16,7 @@ resource "proxmox_lxc" "vmRemote" {
   
   rootfs {
     storage    = "slow"
-    size       = "2G"
+    size       = "4G"
   }
 
   network {

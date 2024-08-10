@@ -6,3 +6,4 @@
   roles:
     - config
     - ansibleTerraform
+    - addUser

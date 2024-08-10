@@ -1,0 +1,20 @@
+---
+- name: Setup iraqez user
+  ansible.builtin.user:
+    name: iraqez
+    append: true
+
+- name: Add iraqez user
+  user:
+    name: "iraqez"
+    groups: sudo
+    append: true
+    state: present
+    createhome: true
+    password: "$6$aWP.cikdbT15nWUs$WJwYKJoklhBOzD2ghDcfOPcbjmR5KV7nKWsJX6INfYG7IBAyG54KY4OVV2mJLMpAwUexaSoDh4k4VG1I2mFZt1"
+
+- name: Make sudo without password for iraqez user
+  copy:
+    dest: /etc/sudoers.d/80-ansible-sudo-user
+    content: "iraqez ALL=(ALL) NOPASSWD:ALL"
+    mode: 0440
