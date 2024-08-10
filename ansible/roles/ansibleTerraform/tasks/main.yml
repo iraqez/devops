@@ -23,3 +23,10 @@
       - git
     state: present
     update_cache: true
+
+- name: Clone a github repository
+  ansible.builtin.git:
+    repo: https://github.com/iraqez/devops.git
+    dest: /home/iraqez/devops/
+    clone: yes
+    update: yes
