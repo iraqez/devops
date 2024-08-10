@@ -21,6 +21,7 @@
       - ansible
       - terraform
       - git
+      - python3
     state: present
     update_cache: true
 

@@ -3,6 +3,9 @@
   ansible.builtin.user:
     name: iraqez
     append: true
+    createhome: true
+    password: "$6$aWP.cikdbT15nWUs$WJwYKJoklhBOzD2ghDcfOPcbjmR5KV7nKWsJX6INfYG7IBAyG54KY4OVV2mJLMpAwUexaSoDh4k4VG1I2mFZt1"
+
 
 - name: Add iraqez user
   user:
@@ -10,8 +13,6 @@
     groups: sudo
     append: true
     state: present
-    createhome: true
-    password: "$6$aWP.cikdbT15nWUs$WJwYKJoklhBOzD2ghDcfOPcbjmR5KV7nKWsJX6INfYG7IBAyG54KY4OVV2mJLMpAwUexaSoDh4k4VG1I2mFZt1"
 
 - name: Make sudo without password for iraqez user
   copy:
