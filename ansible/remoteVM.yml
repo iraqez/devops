@@ -4,6 +4,6 @@
   become: true
   remote_user: root
   roles:
-    - config
-    - ansibleTerraform
+    # - config
+    # - ansibleTerraform
     - addUser
