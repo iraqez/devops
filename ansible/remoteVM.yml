@@ -5,5 +5,7 @@
   remote_user: root
   roles:
     - config
-    - ansibleTerraform
     - addUser
+    - ansibleTerraform
+
+    
