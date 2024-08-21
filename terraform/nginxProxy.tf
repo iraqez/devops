@@ -8,6 +8,7 @@ resource "proxmox_lxc" "nginxProxy" {
   memory       = 512
   swap         = 256
   start        = true
+  onboot       = true
   ssh_public_keys = file(var.ssh_public_keys)
   
   rootfs {

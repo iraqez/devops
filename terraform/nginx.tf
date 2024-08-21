@@ -9,7 +9,6 @@ resource "proxmox_lxc" "nginx" {
   swap         = 256
   start        = true
   onboot       = true
-  vmid         = 101
   ssh_public_keys = file(var.ssh_public_keys)
 
   rootfs {
