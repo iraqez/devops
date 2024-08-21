@@ -5,3 +5,9 @@
       - nginx
     state: present
     update_cache: true
+
+- name: copy index.html
+  ansible.builtin.template:
+    src: ./files/index.nginx-debian.html
+    dest: /var/www/html/index.nginx-debian.html
+    mode: preserve
