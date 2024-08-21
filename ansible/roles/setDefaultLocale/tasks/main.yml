@@ -1,0 +1,19 @@
+---
+- name: Install locales
+  ansible.builtin.apt:
+    name:
+      - locales
+    state: present
+    update_cache: true
+
+- name: Debconf set default locale Ubuntu
+  ansible.builtin.debconf:
+    name: locales
+    question: locales/default_environment_locale
+    value: ru_UA.UTF-8
+    vtype: select
+  when: ansible_distribution == 'Ubuntu'
+
+- name: set as default locale Ubuntu
+  command: localectl set-locale LANG=ru_UA.UTF-8
+  when: ansible_distribution == 'Ubuntu'
