@@ -10,9 +10,14 @@ resource "proxmox_lxc" "nginxProxy" {
   start        = true
   onboot       = true
   ssh_public_keys = file(var.ssh_public_keys)
+
+  # features {
+  #   keyctl = true
+  #   nesting = true
+  # }
   
   rootfs {
-    storage    = "slow"
+    storage    = "containers"
     size       = "8G"
   }
 

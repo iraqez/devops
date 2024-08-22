@@ -9,7 +9,6 @@ root@192.168.10.219 #nginxProxy
 root@192.168.10.217 #nginx
 
 [docker]
-root@192.168.10.216 #gitlab
 root@192.168.10.219 #nginxProxy
 
 [ansibleTerraform]

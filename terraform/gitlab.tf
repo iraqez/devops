@@ -12,7 +12,7 @@ resource "proxmox_lxc" "gitlab" {
   ssh_public_keys = file(var.ssh_public_keys)
   
   rootfs {
-    storage    = "slow"
+    storage    = "containers"
     size       = "8G"
   }
 
