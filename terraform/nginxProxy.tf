@@ -1,7 +1,7 @@
 resource "proxmox_lxc" "nginxProxy" {
   target_node  = "proxmox"
   hostname     = "nginxProxy"
-  ostemplate   = "local:vztmpl/ubuntu-23.10-standard_23.10-1_amd64.tar.zst"
+  ostemplate   = var.ubuntu2404
   password     = var.password
   unprivileged = true
   cores        = 2
