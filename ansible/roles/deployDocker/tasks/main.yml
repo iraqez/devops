@@ -1,17 +1,26 @@
 ---
-- name: copy Docker Compose files
-  copy:
-    src: files/{{ item }}
-    dest: /somewhere/yourproject/{{ item }}
-  loop:
-  - docker-compose.yml
-  # - docker-compose.prod.yml
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: /tmp/app
+    state: directory
+    mode: '0755'
+
+- name: copy docker-compose
+  ansible.builtin.copy:
+    src: ./files/docker-compose.yml
+    dest: /tmp/app
+    mode: preserve
+
+- name: copy nginx.conf
+  ansible.builtin.copy:
+    src: ./files/nginx.conf
+    dest: /tmp/app
+    mode: preserve
 
 # use files parameter to use multiple docker-compose.yml files
 # mind the _v2 suffix
 - name: deploy Docker Compose stack
   community.docker.docker_compose_v2:
-    project_src: /somewhere/yourproject
+    project_src: /tmp/app
     files:
     - docker-compose.yml
-    # - docker-compose.prod.yml
