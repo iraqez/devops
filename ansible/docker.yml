@@ -6,4 +6,6 @@
   roles:
     - config
     - docker
-    - deployDocker
+    - setDefaultLocale
+    # - deployDocker
+    - addUser

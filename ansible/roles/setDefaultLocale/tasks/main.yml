@@ -17,3 +17,7 @@
 - name: set as default locale Ubuntu
   command: localectl set-locale LANG=ru_UA.UTF-8
   when: ansible_distribution == 'Ubuntu'
+
+- name: Set timezone to Europe/Kyiv
+  community.general.timezone:
+    name: "Europe/Kyiv"
