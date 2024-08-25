@@ -5,17 +5,18 @@
     state: directory
     mode: '0755'
 
-- name: copy docker-compose
-  ansible.builtin.copy:
-    src: ./files/docker-compose.yml
-    dest: /tmp/app
-    mode: preserve
+- name: Recursively remove directory
+  ansible.builtin.file:
+    path: /tmp/app
+    state: absent
 
 - name: copy nginx.conf
   ansible.builtin.copy:
-    src: ./files/nginx.conf
-    dest: /tmp/app
+    src: files/
+    dest: /tmp/app/
     mode: preserve
+
+
 
 # use files parameter to use multiple docker-compose.yml files
 # mind the _v2 suffix

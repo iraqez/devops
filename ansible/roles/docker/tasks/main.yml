@@ -82,6 +82,12 @@
     dest: /etc/docker/daemon.json
     mode: preserve
 
+- name: Stop Docker
+  ansible.builtin.service:
+    name: docker
+    state: stopped
+    enabled: true
+
 - name: Recursively remove directory
   ansible.builtin.file:
     path: /var/lib/docker
