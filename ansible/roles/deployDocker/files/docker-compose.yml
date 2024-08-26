@@ -2,7 +2,7 @@ services:
   nginx:
     image: nginx:latest
     restart: unless-stopped
-    container_name: nginx-proxy
+    container_name: unless-stopped
     ports:
       - "80:80"
       - "443:443"

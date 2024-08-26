@@ -1,19 +1,19 @@
 ---
 - name: Create a directory if it does not exist
   ansible.builtin.file:
-    path: /tmp/app
+    path: /opt/app
     state: directory
     mode: '0755'
 
 - name: Recursively remove directory
   ansible.builtin.file:
-    path: /tmp/app
+    path: /opt/app
     state: absent
 
 - name: copy nginx.conf
   ansible.builtin.copy:
     src: files/
-    dest: /tmp/app/
+    dest: /opt/app/
     mode: preserve
 
 
@@ -22,6 +22,6 @@
 # mind the _v2 suffix
 - name: deploy Docker Compose stack
   community.docker.docker_compose_v2:
-    project_src: /tmp/app
+    project_src: /opt/app
     files:
     - docker-compose.yml

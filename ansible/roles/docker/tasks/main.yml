@@ -98,3 +98,8 @@
     name: docker
     state: restarted
     enabled: true
+
+- name: Autostart service docker after reboot
+  service:
+    name: docker
+    enabled: true
