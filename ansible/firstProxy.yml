@@ -1,0 +1,8 @@
+---
+- name: Setup Docker on Ubuntu Server
+  hosts: docker
+  become: true
+  remote_user: root
+  roles:
+    - firstProxy
+    - nginxLetsencDocker

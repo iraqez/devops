@@ -1,0 +1,8 @@
+---
+- name: Setup RemoteVM on Ubuntu Server
+  hosts: selfHost
+  become: true
+  remote_user: root
+  roles:
+    - addCommandHost
+    

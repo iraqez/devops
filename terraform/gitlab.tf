@@ -10,11 +10,13 @@ resource "proxmox_lxc" "gitlab" {
     start        = true
     onboot       = true
     ssh_public_keys = file(var.ssh_public_keys)
+    vmid = 103
   
   rootfs {
     storage    = "containers"
     size       = "8G"
   }
+
 
   network {
     name       = "eth0"

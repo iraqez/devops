@@ -1,0 +1,28 @@
+- name: Create a directory if it does not exist
+  become_user: root
+  ansible.builtin.file:
+    path: /home/iraqez/test123
+    state: directory
+    mode: '0755'
+
+- name: Execute cat 
+  shell:
+    cmd: |
+      cat >> /etc/pve/lxc/102.conf << EOF
+      lxc.idmap = u 0 100000 1005
+      lxc.idmap = g 0 100000 1005
+      lxc.idmap = u 1005 1005 1
+      lxc.idmap = g 1005 1005 1
+      lxc.idmap = u 1006 101006 64530
+      lxc.idmap = g 1006 101006 64530
+      EOF
+  args:
+    executable: /bin/sh
+
+- name: add disk
+  ansible.builtin.shell:
+    /usr/sbin/pct set 102 -mp0 /slow/vmdata,mp=/mnt/vmdata
+
+- name: add features
+  ansible.builtin.shell:
+    /usr/sbin/pct set 102 --features fuse=1,nesting=1,keyctl=1 && /usr/sbin/pct reboot 102

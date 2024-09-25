@@ -1,0 +1,24 @@
+---
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: /opt/app
+    state: directory
+    mode: '0755'
+
+- name: Create a directory letsenrypt(conf)
+  ansible.builtin.file:
+    path: /mnt/vmdata/certbot
+    state: directory
+    mode: '0755'
+
+- name: Create a directory letsenrypt(www)
+  ansible.builtin.file:
+    path: /mnt/vmdata/certbot/conf
+    state: directory
+    mode: '0755'
+
+- name: Create a directory letsenrypt(conf)
+  ansible.builtin.file:
+    path: /mnt/vmdata/certbot/www
+    state: directory
+    mode: '0755'

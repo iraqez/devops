@@ -1,32 +1,14 @@
 ---
-- name: Create a directory if it does not exist
-  ansible.builtin.file:
-    path: /opt/app
-    state: directory
-    mode: '0755'
-
 - name: Recursively remove directory
   ansible.builtin.file:
     path: /opt/app
     state: absent
 
-- name: copy nginx.conf
+- name: copy files for proxy
   ansible.builtin.copy:
     src: files/
     dest: /opt/app/
     mode: preserve
-
-- name: Copying the Directory's lets'encrypt serts
-  ansible.builtin.copy:
-    src: /home/iraqez/certbot
-    dest: /opt/app/
-    mode: preserve
-    remote_src: yes
-
-# - name: Copy serts
-#     ansible.builtin.command: cp -r /home/iraqez/certbot/ /opt/app/
-
-
 
 # use files parameter to use multiple docker-compose.yml files
 # mind the _v2 suffix

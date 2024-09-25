@@ -13,3 +13,6 @@ root@192.168.10.219 #nginxProxy
 
 [ansibleTerraform]
 root@192.168.10.218 #vmRemote
+
+[selfHost]
+root@192.168.10.51

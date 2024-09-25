@@ -10,6 +10,7 @@ resource "proxmox_lxc" "nginx" {
   start        = true
   onboot       = true
   ssh_public_keys = file(var.ssh_public_keys)
+  vmid = 101
 
   rootfs {
     storage    = "containers"

@@ -12,13 +12,12 @@ services:
     extra_hosts:
       - "test.me-ua.com:192.168.10.217"
     volumes:
-      # - ./testmil.conf:/etc/nginx/conf.d/testmil.conf
       - ./nginx/conf/:/etc/nginx/conf.d/:ro
-      - ./certbot/www/:/var/www/certbot/:ro
-      - ./certbot/conf/:/etc/nginx/ssl/:ro
+      - /mnt/vmdata/certbot/www/:/var/www/certbot/:ro
+      - /mnt/vmdata/certbot/conf/:/etc/nginx/ssl/:ro
 
   certbot:
     image: certbot/certbot:latest
     volumes:
-      - ./certbot/www/:/var/www/certbot/:rw
-      - ./certbot/conf/:/etc/letsencrypt/:rw
+      - /mnt/vmdata/certbot/www/:/var/www/certbot/:rw
+      - /mnt/vmdata/certbot/conf/:/etc/letsencrypt/:rw
