@@ -16,6 +16,16 @@
     dest: /opt/app/
     mode: preserve
 
+- name: Copying the Directory's lets'encrypt serts
+  ansible.builtin.copy:
+    src: /home/iraqez/certbot
+    dest: /opt/app/
+    mode: preserve
+    remote_src: yes
+
+# - name: Copy serts
+#     ansible.builtin.command: cp -r /home/iraqez/certbot/ /opt/app/
+
 
 
 # use files parameter to use multiple docker-compose.yml files
