@@ -5,7 +5,7 @@
     state: directory
     mode: '0755'
 
-- name: replace config
+- name: replace config 102 (nginxProxy)
   ansible.builtin.shell:
     cat << EOF >> /etc/pve/lxc/102.conf
     # uid map: from uid 0 map 1005 uids (in the ct) to the range starting 100000 (on the host), so 0..1004 (ct) → 100000..101004 (host)

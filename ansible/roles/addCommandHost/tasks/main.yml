@@ -5,10 +5,29 @@
     state: directory
     mode: '0755'
 
+- name: remove idmap 102
+  shell:
+    cmd:
+      sed -i '/lxc.idmap/d' /etc/pve/lxc/102.conf
+
+- name: remove idmap 105
+  shell:
+    cmd:
+      sed -i '/lxc.idmap/d' /etc/pve/lxc/105.conf
+
 - name: Execute cat 
   shell:
     cmd: |
       cat >> /etc/pve/lxc/102.conf << EOF
+      lxc.idmap = u 0 100000 1005
+      lxc.idmap = g 0 100000 1005
+      lxc.idmap = u 1005 1005 1
+      lxc.idmap = g 1005 1005 1
+      lxc.idmap = u 1006 101006 64530
+      lxc.idmap = g 1006 101006 64530
+      EOF
+
+      cat >> /etc/pve/lxc/105.conf << EOF
       lxc.idmap = u 0 100000 1005
       lxc.idmap = g 0 100000 1005
       lxc.idmap = u 1005 1005 1
@@ -23,6 +42,10 @@
   ansible.builtin.shell:
     /usr/sbin/pct set 102 -mp0 /slow/vmdata,mp=/mnt/vmdata
 
-- name: add features
+- name: add features 102
   ansible.builtin.shell:
     /usr/sbin/pct set 102 --features fuse=1,nesting=1,keyctl=1 && /usr/sbin/pct reboot 102
+
+- name: add features 105
+  ansible.builtin.shell:
+    /usr/sbin/pct set 105 --features fuse=1,nesting=1,keyctl=1 && /usr/sbin/pct reboot 105
