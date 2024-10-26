@@ -1,6 +1,6 @@
 ---
 - name: Setup Docker on Ubuntu Server
-  hosts: docker
+  hosts: proxy
   become: true
   remote_user: root
   roles:

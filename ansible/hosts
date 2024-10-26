@@ -4,12 +4,17 @@ root@192.168.10.216 #gitlab
 root@192.168.10.217 #nginx
 root@192.168.10.218 #vmRemote
 root@192.168.10.219 #nginxProxy
+root@192.168.10.221 #djangoMil
 
 [nginx]
 root@192.168.10.217 #nginx
 
+[proxy]
+root@192.168.10.219 #nginxProxy
+
 [docker]
 root@192.168.10.219 #nginxProxy
+root@192.168.10.221 #djangoMil
 
 [ansibleTerraform]
 root@192.168.10.218 #vmRemote
