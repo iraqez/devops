@@ -10,6 +10,11 @@
     cmd:
       sed -i '/lxc.idmap/d' /etc/pve/lxc/102.conf
 
+- name: remove idmap 104
+  shell:
+    cmd:
+      sed -i '/lxc.idmap/d' /etc/pve/lxc/104.conf
+
 - name: remove idmap 105
   shell:
     cmd:
